@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- CDN OFFLINE- sw_topNav.css -->
+    <link rel="stylesheet" href="../sw_css/sw-1.0.0.css">
+    <!-- CDN - jquery 3.4.1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- CDN - Font Awesome 4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- CDN - W3CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script>
+        function pwdcheck() {
+            var p1 = document.getElementById("pwd").value;
+            var p2 = document.getElementById("pwd2").value;
+            var target = document.getElementById("pwdcheck");
+            var btn = document.getElementById("joinBtn");
+
+            console.log(p1 + " " + p2);
+
+            if (p2 != null && p2 !== "") {
+                if (!(p1 === p2)) {
+                    target.innerHTML = '<div class="w3-panel w3-yellow"> <h2>WARNING!!</h2> 비밀번호 불일치 </div>';
+                    btn.disabled = true;
+                } else {
+                    target.innerHTML = '<div class="w3-panel w3-green"> 비밀번호 일치 </div>';
+                    btn.disabled = false;
+                }
+            }
+        }
+
+        function submitinput() {
+            var p1 = document.getElementById("pwd").value;
+            var p2 = document.getElementById("pwd2").value;
+
+            if (p1 === p2 && p1 != null && p1 !== "") {
+                document.inputform.submit();
+            } else {
+                alert("비밀번호를 확인하세요.");
+                document.getElementById("pwd").value = "";
+                document.getElementById("pwd2").value = "";
+                document.getElementById("pwd").focus();
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+
+
+
+    <!-- responsive template by SW ----------------------------------------------------------- -->
+    <!-- Need   W3CSS  +  FONT AS4  +  sw+topnav offline ------------------------------------- -->
+    <div class="sw-topnav-margin">
+        &nbsp;
+    </div>
+
+    <!-- CONTENT ------------------------------------------------------------------------------------ -->
+    <div class="sw-center">
+
+        <!-- 가로복 제한 400~1200 ---------------------------------------------------------------------------------->
+        <div class="sw-container-400">
+            <div class="w3-container">
+                <!-- 3 main content start here!!!----------------------------------------------------------- -->
+                <!-- 2 main content start here!!!----------------------------------------------------------- -->
+                <!-- 1 main content start here!!!----------------------------------------------------------- -->
+
+                <h2 class="w3-center w3-red">회원가입</h2>
+                <form action="inputPro.jsp" name="inputform" method="post">
+                    <table class="w3-table">
+                        <tr>
+                            <td>ㄵㄵㄵㄵ</td>
+                            <td> <input type="text" name="id" id="id" class="w3-input w3-border" required> </td>
+                        </tr>
+                        <tr>
+                            <td>name</td>
+                            <td> <input type="text" name="name" id="name" class="w3-input w3-border" required> </td>
+                        </tr>
+                        <tr>
+                            <td>pwd</td>
+                            <td><input type="password" name="pwd" id="pwd" class="w3-input w3-border" required onkeyup="pwdcheck()"></td>
+                        </tr>
+                        <tr>
+                            <td>pwd체크</td>
+                            <td><input type="password" name="pwd2" id="pwd2" class="w3-input w3-border" required onkeyup="pwdcheck()">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div id="pwdcheck"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button type="submit" id="joinBtn" class="w3-button w3-green" style="width: 92px;" disabled>회원가입</button>
+                                <button type="button" class="w3-button w3-yellow" style="width: 92px;">리셋</button>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                </form>
+
+                <!-- main content end----------------------------------------------------------------------- -->
+            </div>
+        </div>
+    </div>
+
+    <!-- HEAD ------------------------------------------------------------------------------------ -->
+    <!-- head가 맨 나중?나중에 나온 요소가 레이어 맨위로... ---------------------------------------->
+    <header class="topnav w3-card" id="topNav">
+        <a href="AAAAAA" class="active">AAAAAA</a>
+        <a href="BBBBBB">BBBBBB</a>
+        <a href="CCCCCC">CCCCCC</a>
+        <a href="DDDDDD">DDDDDD</a>
+        <a href="EEEEEE">EEEEEE</a>
+        <a href="javascript:void(0);" class="icon" onclick="responsiveMenuPopUp()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </header>
+
+    <script>
+        /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+        function responsiveMenuPopUp() {
+            var x = document.getElementById("topNav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>
